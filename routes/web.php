@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
 use App\http\Middleware\Authenticate;
 
 
@@ -18,5 +19,9 @@ Route::get('/', function () {
 
 // Protected Routes
 Route::middleware(['authentication'])->group(function () {
+
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // User Management (Admin Only)
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+
 });

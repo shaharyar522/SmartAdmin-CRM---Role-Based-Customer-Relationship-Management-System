@@ -1,7 +1,5 @@
 <?php
-
 namespace Database\Seeders;
-
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,26 +13,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
         User::create([
             'name' => 'Admin User',
-            'email' => 'admin@crm.com',
-            'password' => bcrypt('123456'),
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('123'),
             'role' => 'admin',
         ]);
 
         User::create([
-
             'name' => 'Manager User',
-            'email' => 'manager@crm.com',
-            'password' => bcrypt('123456'),
+            'email' => 'manager@gmail.com',
+            'password' => bcrypt('123'),
             'role' => 'manager',
-            
         ]);
 
         User::create([
             'name' => 'Staff User',
-            'email' => 'staff@crm.com',
-            'password' => bcrypt('123456'),
+            'email' => 'staff@gmail.com',
+            'password' => bcrypt('123'),
             'role' => 'staff',
         ]);
     }
