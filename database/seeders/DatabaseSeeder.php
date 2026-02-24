@@ -23,10 +23,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
+
             'name' => 'Manager User',
             'email' => 'manager@crm.com',
             'password' => bcrypt('123456'),
             'role' => 'manager',
+            
         ]);
 
         User::create([
