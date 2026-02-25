@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('role')->default('staff'); // roles: admin, manager, staff
+            $table->boolean('is_first_login')->default(true); // true = must set own password on first login
             $table->rememberToken();
             $table->timestamps();
         });

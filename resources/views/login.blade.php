@@ -72,8 +72,8 @@
 						<span class="txt1">
 							Forgot
 						</span>
-						<a class="txt2" href="#">
-							Username / Password?
+						<a class="txt2" href="{{ route('forgot.password') }}">
+							Password?
 						</a>
 					</div>
 

@@ -25,6 +25,14 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
+            $user = Auth::user();
+
+            // 🔐 Only staff/manager must set their own password on first login
+            // Admin always goes directly to dashboard
+            if ($user->is_first_login && $user->role !== 'admin') {
+                return redirect()->route('set.password');
+            }
+
             return redirect()->intended('dashboard');
         }
 

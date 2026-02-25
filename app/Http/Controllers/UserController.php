@@ -25,10 +25,11 @@ class UserController extends Controller
         ]);
 
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-            'role' => $request->role,
+            'name'           => $request->name,
+            'email'          => $request->email,
+            'password'       => bcrypt($request->password),
+            'role'           => $request->role,
+            'is_first_login' => true,   // Force password change on first login
         ]);
 
         // Send Email Notification
