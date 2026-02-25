@@ -22,6 +22,10 @@ Route::middleware(['authentication'])->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // User Management (Admin Only)
-    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::get('/users', [UserController::class, 'index'])->name('users.index')->middleware('role:admin');
+    Route::post('/users', [UserController::class, 'store'])->name('users.store')->middleware('role:admin');
+    Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit')->middleware('role:admin');
+    Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update')->middleware('role:admin');
+    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy')->middleware('role:admin');
 
 });
